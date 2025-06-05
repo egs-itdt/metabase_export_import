@@ -578,9 +578,9 @@ class MetabaseApi:
                         obj_res.pop(k)
                         obj_res['collection_name'] = '%'+k+'%'
                     elif k == 'dashboard_id':
-                        if k is None:
-                            continue
                         id = obj_res.pop(k)
+                        if id is None:
+                            continue
                         name = self.dashboard_id2name(database_name, id)
                         if not name:
                             raise Exception("no name for dashboard "+str(id))
